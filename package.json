@@ -9,7 +9,9 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -32,7 +34,19 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.6",
+    "electron": "^1.7.10",
+    "electron-builder": "^19.49.2",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "electron/main.js",
+  "build": {
+    "files": [
+      "electron/main.js",
+      "www/**/*"
+    ],
+    "mac": {
+      "category": "productivity"
+    }
+  }
 }
